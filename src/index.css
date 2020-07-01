@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+body {
+	background: #f1f1f1;
+	padding: 0px;
+	margin: 0px;
+}
+
+#title {
+	font-family: "Roboto Mono";
+	color: #cc6166;
+	font-size: 40px;
+}
+
+header {
+	height: 85px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	margin: 0px;
+	-webkit-user-select: none;
+	-webkit-app-region: drag;
+}
+
+#headerButton {
+	height: 30px;
+	width: 70px;
+	background-color: #cc6166;
+	color: #fff;
+	-webkit-app-region: no-drag;
+}
+#addItemDiv {
+	display: flex;
+	width: 85%;
+	flex-direction: row;
+	align-items: center;
+	align-self: flex-end;
+	justify-content: space-between;
+	padding: 14px;
+	background-color: #cc6166;
+	border-radius: 10px;
+	position: absolute;
+	bottom: 12px;
+}
+#input {
+	background-color: #f1f1f1;
+	font-size: 16px;
+	width: 70%;
+	color: black;
+	border-width: 0px;
+}
+#addItemButton {
+	background-color: #cc6166;
+	/* height: 50px;
+		width: 70px; */
+	color: #f1f1f1;
+}
