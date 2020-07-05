@@ -1,9 +1,10 @@
-const { app, BrowserWindow } = require("electron");
+const { app, BrowserWindow, Menu, shell } = require("electron");
 
 function createWindow() {
+	const isMac = process.platform === "darwin";
 	let win = new BrowserWindow({
 		show: false,
-		title: "DoIt",
+		// title: "DoIt",
 		width: 420,
 		maxWidth: 420,
 		minWidth: 330,
@@ -21,10 +22,40 @@ function createWindow() {
 		},
 	});
 
-	win.loadFile("src/index.html");
+	win.loadFile("src/pages/Initial.html");
 	win.once("ready-to-show", () => {
 		win.show();
 	});
+
+	var menu = Menu.buildFromTemplate([
+		{
+			label: "Menu",
+			submenu: [
+				{
+					label: "Sobre DoIt",
+					role: "about",
+				},
+				{
+					label: "Ver aplicativo Android",
+					click() {
+						shell.openExternal(
+							"https://play.google.com/store/apps/details?id=com.doit.webermiguel"
+						);
+					},
+				},
+				{ type: "separator" },
+				{
+					accelerator: isMac ? "Cmd + Q" : "Cntrl + Q",
+					label: "Encerrar DoIt",
+					click() {
+						app.quit();
+					},
+				},
+			],
+		},
+	]);
+
+	Menu.setApplicationMenu(menu);
 }
 
 app.whenReady().then(createWindow);

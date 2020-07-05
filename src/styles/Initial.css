@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+#draggable {
+	background-color: #dfdfdfa8;
+	width: 100%;
+	height: 23px;
+	-webkit-app-region: drag;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	margin: 0px;
+	padding: 0px;
+}
+
+#topArea {
+	display: flex;
+	height: 50%;
+	background-color: #dfdfdfa8;
+	align-items: center;
+	justify-content: center;
+}
+
+#pageTitle {
+	color: #cc6166;
+	font-family: "Roboto Mono";
+}
+
+#chooseContainer {
+	display: flex;
+	height: 50%;
+	flex-direction: column;
+	background-color: #f1f1f1;
+	justify-content: space-around;
+}
+
+.chooseArea {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 8px;
+	padding-left: 20px;
+}
+
+.chooseTitle {
+	color: #353535;
+	font-family: "Roboto Mono";
+	font-size: 16px;
+}
+
+.chooseButton {
+	display: flex;
+	background-color: #cc6166;
+	color: #fff;
+	font-size: 18px;
+	width: 45%;
+	align-items: center;
+	justify-content: center;
+	border-width: 0px;
+	border-radius: 10px;
+	padding: 6px;
+}
