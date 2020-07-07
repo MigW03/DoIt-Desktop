@@ -7,21 +7,31 @@
 		<link rel="stylesheet" href="../styles/Initial.css" />
 	</head>
 	<body>
-		<div id="draggable"></div>
+		<div id="container">
+			<div id="draggable"></div>
+			<div id="interactionArea">
+				<div id="topArea">
+					<h1 id="title">DoIt</h1>
+					<h3 id="description">
+						Sincronize as suas tarefas com seu android!
+					</h3>
+				</div>
 
-		<div id="topArea">
-			<h1 id="pageTitle">DoIt</h1>
+				<div id="chooseContainer">
+					<div class="chooseArea">
+						<h4 class="chooseTitle">Já Possui conta? Fazer Login!</h4>
+						<button class="chooseButton" onclick="goToLogin()">Login</button>
+					</div>
+					<div class="chooseArea">
+						<h4 class="chooseTitle">Ainda não tem conta? Cadastrar-se!!</h4>
+						<button class="chooseButton" onclick="goToRegister()">
+							Cadastro
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 
-		<div id="chooseContainer">
-			<div class="chooseArea">
-				<h4 class="chooseTitle">Já Possui conta? Fazer Login!</h4>
-				<button class="chooseButton">Login</button>
-			</div>
-			<div class="chooseArea">
-				<h4 class="chooseTitle">Não possui conta ainda? Cadastra-se!</h4>
-				<button class="chooseButton">Cadastro</button>
-			</div>
-		</div>
+		<script src="../Initial.js"></script>
 	</body>
 </html>

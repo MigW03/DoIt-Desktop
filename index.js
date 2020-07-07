@@ -13,7 +13,6 @@ function createWindow() {
 		minHeight: 380,
 		maximizable: false,
 		fullscreenable: false,
-		// alwaysOnTop: true,
 		hasShadow: false,
 		titleBarStyle: "hidden",
 		webPreferences: {
