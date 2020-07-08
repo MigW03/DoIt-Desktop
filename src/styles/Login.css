@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
+* {
+	-webkit-user-select: none;
+}
+
 #draggable {
 	background-color: #dfdfdfa8;
 	width: 100%;
@@ -12,4 +16,85 @@ body {
 	flex-direction: column;
 	margin: 0px;
 	padding: 0px;
+}
+
+#goBackButton {
+	width: fit-content;
+	color: #cc6166;
+	font-family: "Roboto Mono";
+	font-size: 14px;
+	font-weight: bold;
+	border: 2px solid #cc6166;
+	border-radius: 6px;
+	padding: 4px;
+	align-self: flex-start;
+	margin: 8px 0px 0px 8px;
+}
+
+#pageTitle {
+	font-family: "Roboto mono";
+	color: #373737;
+	font-size: 20px;
+	margin-left: 40px;
+}
+
+#pageTitleDoIt {
+	font-family: "Roboto Mono";
+	color: #cc6166;
+	align-self: center;
+	font-size: 60px;
+	margin-right: 40px;
+	/* margin-bottom: 60px; */
+}
+
+.inputTitle {
+	color: #393939;
+	font-family: "Roboto Mono";
+	font-size: 17px;
+	font-weight: bold;
+	margin-top: 28px;
+	margin-bottom: 10px;
+	margin-left: 28px;
+}
+
+.loginInput {
+	width: 85%;
+	align-self: center;
+	padding: 6px;
+	padding-left: 10px;
+	font-size: 14px;
+	font-family: "Roboto Mono";
+	border: 2px solid #a2a2a2;
+	border-radius: 9px;
+}
+
+.loginInput:focus {
+	outline: none;
+	border-color: #cc6166;
+	border-width: 4px;
+	font-size: 18px;
+}
+
+#loginButton {
+	background-color: #cc6166;
+	width: 80%;
+	margin-top: 30px;
+	padding: 10px;
+	align-self: center;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	border-radius: 14px;
+}
+
+#resetPasswordButton {
+	font-family: "Roboto Mono";
+	align-self: center;
+	color: #595959;
+	font-size: 14px;
+	text-decoration: underline solid;
+}
+
+#resetPasswordButton:hover {
+	cursor: pointer;
 }

@@ -39,7 +39,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	justify-content: center;
+	justify-content: space-around;
 	height: 35vh;
 }
 

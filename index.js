@@ -1,4 +1,5 @@
 const { app, BrowserWindow, Menu, shell } = require("electron");
+const firebase = require("firebase/app");
 
 function createWindow() {
 	const isMac = process.platform === "darwin";
@@ -16,7 +17,7 @@ function createWindow() {
 		hasShadow: false,
 		titleBarStyle: "hidden",
 		webPreferences: {
-			devTools: false,
+			// devTools: false,
 			nodeIntegration: true,
 		},
 	});
@@ -54,7 +55,7 @@ function createWindow() {
 		},
 	]);
 
-	Menu.setApplicationMenu(menu);
+	// Menu.setApplicationMenu(menu);
 }
 
 app.whenReady().then(createWindow);

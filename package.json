@@ -11,5 +11,8 @@
 	"license": "ISC",
 	"devDependencies": {
 		"electron": "^8.3.0"
+	},
+	"dependencies": {
+		"firebase": "^7.15.5"
 	}
 }

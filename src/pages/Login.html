@@ -9,9 +9,20 @@
 	<body>
 		<div id="draggable"></div>
 
-		<button onclick="goBack()">Voltar</button>
-		<h1>Login page</h1>
+		<button onclick="goToHome()" id='goBackButton'>Voltar</button>
 
-		<script src="../Login.js"></script>
+		<h2 id='pageTitle'>Faça login na sua conta</h2>
+		<h1 id='pageTitleDoIt'>DoIt</h1>
+
+		<h4 class="inputTitle">Digite seu email:</h4>
+		<input type="email" name="loginEmail" id="loginEmail" class='loginInput' placeholder='Email' autofocus>
+
+		<h4 class="inputTitle">Digite sua senha:</h4>
+		<input type="password" name="loginPassword" id="loginPassword" class='loginInput' placeholder="Senha">
+
+		<button onclick='Login()' id='loginButton'>Entrar</button>
+		<p id='resetPasswordButton' >Esqueci a minha senha!</p>
+
+		<script src="../Main.js"></script>
 	</body>
 </html>
