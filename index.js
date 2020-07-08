@@ -44,7 +44,7 @@ function createWindow() {
 				},
 				{ type: "separator" },
 				{
-					accelerator: isMac ? "Cmd + Q" : "Cntrl + Q",
+					accelerator: isMac ? "Cmd + Q" : "Ctrl + Q",
 					label: "Encerrar DoIt",
 					click() {
 						app.quit();
