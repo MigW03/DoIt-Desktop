@@ -9,7 +9,6 @@ body {
 	margin: 0px;
 }
 #draggable {
-	background-color: #dfdfdfa8;
 	width: 100%;
 	height: 23px;
 	-webkit-app-region: drag;

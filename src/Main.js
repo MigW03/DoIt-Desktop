@@ -2,6 +2,7 @@ const { dialog } = require("electron").remote;
 const firebase = require("firebase/app");
 const { auth } = require("firebase/app");
 require("firebase/auth");
+const isMac = process.platform == "darwin";
 
 firebase.initializeApp({
 	apiKey: "AIzaSyBiSc-DqKtwdz7HZgY7pPUKhWl98e9Ee-w",
@@ -47,42 +48,62 @@ function Login() {
 			})
 			.catch((error) => {
 				if (error.code === "auth/user-not-found") {
-					return alert("Este usuário não existe, cadastre-se primeiro!");
+					return dialog.showMessageBox({
+						type: "info",
+						title: "Usuário inválido",
+						message: "Este usuário não existe, cadastre-se primeiro!",
+					});
 				}
 				if (error.code === "auth/invalid-email") {
 					return (
-						alert("Este email é inválido, tente outro!"), emailInput.focus()
+						dialog.showMessageBox({
+							type: "info",
+							title: "Email inválido",
+							message: "Este email é inválido, por favor tente outro",
+						}),
+						isMac ? emailInput.focus() : (emailInput.value = "")
 					);
 				}
 				if (error.code === "auth/wrong-password") {
 					return (
-						// alert("A senha ou email está incorreto, por favor tente novamente"),
 						dialog.showMessageBox({
 							type: "info",
-							title: "teste",
-							message: "Seua senha está incorreta",
+							title: "Dados incorretos",
+							message:
+								"Seu email ou senha está incorreta, por favor digite novamente",
 						}),
-						process.platform == "darwin"
-							? passwordInput.focus()
-							: (passwordInput.value = "")
-						// passwordInput.focus()
+						isMac ? passwordInput.focus() : (passwordInput.value = "")
 					);
 				}
 				if (error.code === "auth/network-request-failed") {
-					return alert("Sem conexão à rede, conecte-se e tente novamente");
+					return dialog.showMessageBox({
+						type: "info",
+						title: "Sem conexão",
+						message: "Sem conexão à rede, conecte-se e tente novamente!",
+					});
 				}
 				if (error.code === "auth/too-many-requests") {
-					return alert(
-						"Você fez muitas tentativas de login sem sucesso, por favor, tente novamente mais tarde!"
-					);
+					return dialog.showMessageBox({
+						type: "info",
+						title: "Muitas tentativas",
+						message:
+							"Você fez muitas tentativas de login sem sucesso, por favor tente novamente mais tarde!",
+					});
 				}
 				console.log(error);
-				alert(
-					"Houve um problema, por favor reinicie o aplicativo e tente novamente!"
-				);
+				dialog.showMessageBox({
+					type: "info",
+					title: "Opps!!",
+					message:
+						"Houve um problema, por favor reinicie o aplicativo e tente novamente!",
+				});
 			});
 	} else {
-		alert("Digite seu email e senha antes de prosseguir");
+		dialog.showMessageBox({
+			type: "info",
+			title: "Campos obrigatórios",
+			message: "Digite seus email e senha antes de prosseguir!",
+		});
 	}
 }
 
@@ -93,12 +114,20 @@ function forgotPassword() {
 			.auth()
 			.sendPasswordResetEmail(email)
 			.then(() =>
-				alert("Um email para recuperação de senha foi enviado para você!")
+				dialog.showMessageBox({
+					type: "info",
+					title: "Email enviado com sucesso",
+					message:
+						"Um email para redefinir sua senha foi enviado para seu email!",
+				})
 			);
 	} else {
-		alert(
-			"Digite o seu email no campo de 'email' para que possamos enviar o email de recuperação!"
-		);
+		dialog.showMessageBox({
+			type: "info",
+			title: "Digite seu email",
+			message:
+				"Digite o seu email no campo de 'email' para que possamos enviar o email de recuperação!",
+		});
 	}
 }
 
@@ -111,43 +140,70 @@ function Register() {
 			.auth()
 			.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
 			.then(() => {
-				alert("Usuário criado com sucesso");
+				dialog.showMessageBox({
+					type: "info",
+					title: "Usuário criado",
+					message: "Seu usuário foi ciado com sucesso!",
+				});
 				window.location.href = "./Main.html";
 			})
 			.catch((error) => {
 				if (error.code === "auth/email-already-in-use") {
 					return (
-						alert(
-							"Este email já está sendo usado por algum usuário, por favor use outro!"
-						),
-						emailInput.focus()
+						dialog.showMessageBox({
+							type: "info",
+							title: "Usuário existente",
+							message:
+								"Este email já está sendo usado por algum usuário, por favor use outro endereço!",
+						}),
+						isMac ? emailInput.focus() : (emailInput.value = "")
 					);
 				}
 				if (error.code === "auth/invalid-email") {
 					return (
-						alert("Este endereç de email é inválido, tente outro!"),
-						emailInput.focus()
+						dialog.showMessageBox({
+							type: "info",
+							title: "Email inválido",
+							message:
+								"Esse endereço de email é inválido, por favor tente outro!",
+						}),
+						isMac ? emailInput.focus() : (emailInput.value = "")
 					);
 				}
 				if (error.code === "auth/network-request-failed") {
-					return alert("Sem conexão à rede, conecte-se e tente novamente");
+					return dialog.showMessageBox({
+						type: "info",
+						title: "Sem conexão",
+						message: "Sem conexão à rede, conecte-se e tente novamente",
+					});
 				}
 				if (error.code === "auth/weak-password") {
 					return (
-						alert(
-							"Essa senha está fraca, ela deve ter pelo menos 6 caracteres!"
-						),
-						passwordInput.focus()
+						dialog.showMessageBox({
+							type: "info",
+							title: "Senha fraca",
+							message:
+								"Essa senha está fraca, ela deve conter pelo menos 6 caracteres!",
+						}),
+						isMac ? passwordInput.focus() : (passwordInput.value = "")
 					);
 				}
 				console.log(error);
-				alert("Houve um erro no seu cadastro, por favor tente novamente!");
+				dialog.showMessageBox({
+					type: "info",
+					title: "Opps!!",
+					message:
+						"Houve um erro durante o seu cadastro, por favor tente novamente!",
+				});
 			});
 	} else {
-		alert(
-			"Complete os campos para prosseguir, a senha deve ter pelo menos 6 caracteres!"
-		);
-		passwordInput.focus();
+		dialog.showMessageBox({
+			type: "info",
+			title: "Campos obrigatórios",
+			message:
+				"Complete os campos para prosseguir, a senha deve ter pelo menos 6 caracteres",
+		});
+		isMac ? passwordInput.focus() : (passwordInput.value = "");
 	}
 }
 
