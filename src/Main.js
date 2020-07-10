@@ -1,8 +1,6 @@
 const { dialog } = require("electron").remote;
 const firebase = require("firebase/app");
-const { auth } = require("firebase/app");
 require("firebase/auth");
-const isMac = process.platform == "darwin";
 
 firebase.initializeApp({
 	apiKey: "AIzaSyBiSc-DqKtwdz7HZgY7pPUKhWl98e9Ee-w",
@@ -26,6 +24,7 @@ function isLogedIn() {
 		}
 	});
 }
+
 function Logout() {
 	firebase
 		.auth()
@@ -61,7 +60,8 @@ function Login() {
 							title: "Email inválido",
 							message: "Este email é inválido, por favor tente outro",
 						}),
-						isMac ? emailInput.focus() : (emailInput.value = "")
+						(emailInput.value = ""),
+						emailInput.focus()
 					);
 				}
 				if (error.code === "auth/wrong-password") {
@@ -72,7 +72,8 @@ function Login() {
 							message:
 								"Seu email ou senha está incorreta, por favor digite novamente",
 						}),
-						isMac ? passwordInput.focus() : (passwordInput.value = "")
+						(passwordInput.value = ""),
+						passwordInput.focus()
 					);
 				}
 				if (error.code === "auth/network-request-failed") {
@@ -156,7 +157,8 @@ function Register() {
 							message:
 								"Este email já está sendo usado por algum usuário, por favor use outro endereço!",
 						}),
-						isMac ? emailInput.focus() : (emailInput.value = "")
+						(emailInput.value = ""),
+						emailInput.focus()
 					);
 				}
 				if (error.code === "auth/invalid-email") {
@@ -167,7 +169,8 @@ function Register() {
 							message:
 								"Esse endereço de email é inválido, por favor tente outro!",
 						}),
-						isMac ? emailInput.focus() : (emailInput.value = "")
+						(emailInput.value = ""),
+						emailInput.focus()
 					);
 				}
 				if (error.code === "auth/network-request-failed") {
@@ -185,7 +188,8 @@ function Register() {
 							message:
 								"Essa senha está fraca, ela deve conter pelo menos 6 caracteres!",
 						}),
-						isMac ? passwordInput.focus() : (passwordInput.value = "")
+						(passwordInput.value = ""),
+						passwordInput.focus()
 					);
 				}
 				console.log(error);
@@ -203,7 +207,7 @@ function Register() {
 			message:
 				"Complete os campos para prosseguir, a senha deve ter pelo menos 6 caracteres",
 		});
-		isMac ? passwordInput.focus() : (passwordInput.value = "");
+		(passwordInput.value = ""), passwordInput.focus();
 	}
 }
 
