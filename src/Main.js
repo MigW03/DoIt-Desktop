@@ -1,3 +1,4 @@
+const { dialog } = require("electron").remote;
 const firebase = require("firebase/app");
 const { auth } = require("firebase/app");
 require("firebase/auth");
@@ -55,8 +56,16 @@ function Login() {
 				}
 				if (error.code === "auth/wrong-password") {
 					return (
-						alert("A senha ou email está incorreto, por favor tente novamente"),
-						passwordInput.focus()
+						// alert("A senha ou email está incorreto, por favor tente novamente"),
+						dialog.showMessageBox({
+							type: "info",
+							title: "teste",
+							message: "Seua senha está incorreta",
+						}),
+						process.platform == "darwin"
+							? passwordInput.focus()
+							: (passwordInput.value = "")
+						// passwordInput.focus()
 					);
 				}
 				if (error.code === "auth/network-request-failed") {
