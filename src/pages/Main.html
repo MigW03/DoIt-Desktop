@@ -3,22 +3,121 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/f6a01a97f6.js"
+			crossorigin="anonymous"
+		></script>
 		<title>DoIt</title>
 
 		<link rel="stylesheet" href="../styles/Main.css" />
 	</head>
-	<body>
+	<body onload="loadData()">
 		<div id="draggable"></div>
 		<header>
 			<h1 id="title">DoIt</h1>
-			<button id="headerButton" onclick="Logout()">clique aqui</button>
+			<button id="headerButton" onclick="Logout()">
+				<i class="fas fa-cog"></i>
+			</button>
 		</header>
+
+		<div id="listContainer">
+			<ul id="list">
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+				<li class="listItem">
+					<div class="starIcon">
+						<i class="fas fa-star" onclick="console.log('estrela')"></i>
+					</div>
+					<div class="textContainer">
+						TesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTesteTeste
+					</div>
+					<div class="trashIcon">
+						<i class="far fa-trash-alt" onclick="console.log('lixo')"></i>
+					</div>
+				</li>
+			</ul>
+		</div>
 
 		<div id="addItemDiv">
 			<input type="text" name="newItem" id="input" placeholder="Novo item" />
-			<button id="addItemButton">Salvar item</button>
+			<button id="addItemButton"><i class="fas fa-paper-plane"></i></button>
 		</div>
 
-		<script src="../Main.js"></script>
+		<script src="../List.js"></script>
 	</body>
 </html>

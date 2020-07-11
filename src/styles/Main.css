@@ -7,7 +7,9 @@ body {
 	background: #f1f1f1;
 	padding: 0px;
 	margin: 0px;
+	overflow-y: hidden;
 }
+
 #draggable {
 	width: 100%;
 	height: 23px;
@@ -32,10 +34,9 @@ header {
 }
 
 #headerButton {
-	height: 30px;
-	width: 90px;
-	background-color: #cc6166;
-	color: #fff;
+	background-color: #f1f1f1;
+	color: #cc6166;
+	font-size: 32px;
 	-webkit-app-region: no-drag;
 	border-width: 0px;
 	font-family: "Roboto Mono";
@@ -50,14 +51,14 @@ header {
 	padding: 14px;
 	background-color: #cc6166;
 	border-radius: 10px;
-	position: absolute;
+	position: fixed;
 	bottom: 12px;
 }
 #input {
-	background-color: #f1f1f1;
+	background-color: #fff;
 	font-size: 17px;
 	font-family: "Roboto Mono";
-	width: 70%;
+	width: 80%;
 	color: black;
 	border-width: 0px;
 	border-radius: 4px;
@@ -69,8 +70,83 @@ header {
 	align-items: center;
 	justify-content: center;
 	border-width: 0px;
-	color: #f1f1f1;
-	font-size: 13px;
-	width: 25%;
+	color: #fff;
+	font-size: 24px;
+	width: 15%;
 	font-family: "Roboto Mono";
+}
+
+#listContainer {
+	height: calc(100vh - 93px);
+	overflow-y: auto;
+}
+
+#listContainer::-webkit-scrollbar {
+	background-color: #f1f1f1;
+	width: 16px;
+}
+
+#listContainer::-webkit-scrollbar-thumb {
+	background: #a9a9a9aa;
+	border-radius: 10px;
+	border: 4px solid #f1f1f1;
+}
+#listContainer::-webkit-scrollbar-thumb:hover {
+	background: #cc616690;
+}
+
+#listContainer::-webkit-scrollbar-thumb:window-inactive {
+	background: #a9a9a958;
+}
+
+#list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-items: center;
+	padding-inline-start: 0px;
+	padding-bottom: 70px;
+}
+
+.listItem {
+	display: flex;
+	align-items: center;
+	width: 85%;
+	/* align-self: center; */
+	background-color: #fff;
+	font-family: "Roboto Mono";
+	font-weight: bold;
+	font-size: 18px;
+	padding: 8px;
+	margin-bottom: 10px;
+	border-radius: 8px;
+	list-style-type: none;
+}
+
+.textContainer {
+	width: 70%;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+	word-break: break-all;
+}
+
+.starIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	/* color: #bfbfbf80; */
+	color: orange;
+	font-size: 22px;
+	cursor: pointer;
+}
+
+.trashIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 15%;
+	font-size: 22px;
+	color: #c13e45;
 }

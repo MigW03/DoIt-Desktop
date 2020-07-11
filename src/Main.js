@@ -25,15 +25,6 @@ function isLogedIn() {
 	});
 }
 
-function Logout() {
-	firebase
-		.auth()
-		.signOut()
-		.then(() => {
-			window.location.href = "./Initial.html";
-		});
-}
-
 function Login() {
 	let emailInput = document.getElementById("loginEmail");
 	let passwordInput = document.getElementById("loginPassword");
