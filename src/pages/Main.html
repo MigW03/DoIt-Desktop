@@ -3,14 +3,20 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://kit.fontawesome.com/f6a01a97f6.js"	crossorigin="anonymous"></script>
+		<script
+			src="https://kit.fontawesome.com/f6a01a97f6.js"
+			crossorigin="anonymous"
+		></script>
 		<title>DoIt</title>
 
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
 		<link rel="stylesheet" href="../styles/Main.css" />
 	</head>
 	<body onload="loadData()">
-	<!-- <body> -->
+		<!-- <body> -->
 		<div id="draggable"></div>
 		<header>
 			<h1 id="title">DoIt</h1>
@@ -37,7 +43,9 @@
 
 		<div id="addItemDiv">
 			<input type="text" name="newItem" id="input" placeholder="Novo item" />
-			<button id="addItemButton"><i class="fas fa-paper-plane"></i></button>
+			<button id="addItemButton" onclick="addItem()">
+				<i class="fas fa-paper-plane"></i>
+			</button>
 		</div>
 
 		<script src="../List.js"></script>

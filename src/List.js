@@ -1,10 +1,10 @@
 const firebase = require("firebase/app");
 require("firebase/auth");
 require("firebase/firestore");
+const { dialog } = require("electron").remote;
 
 const list = document.getElementById("list");
 const dataInput = document.getElementById("input");
-const addButton = document.getElementById("addItemButton");
 
 firebase.initializeApp({
 	apiKey: "AIzaSyBiSc-DqKtwdz7HZgY7pPUKhWl98e9Ee-w",
@@ -56,8 +56,11 @@ function renderTodos(data) {
 		let starDiv = document.createElement("div");
 		starDiv.setAttribute("class", "starIcon");
 		let star = document.createElement("i");
-		star.setAttribute("class", "material-icons");
-		star.setAttribute("onclick", "console.log(`estrela`)");
+		star.setAttribute(
+			"class",
+			item.important ? "material-icons orange" : "material-icons grey"
+		);
+		star.setAttribute("onclick", "console.log(`estrela: ${this.key.value}`)");
 		star.appendChild(document.createTextNode("star"));
 		starDiv.appendChild(star);
 
@@ -72,7 +75,7 @@ function renderTodos(data) {
 		trashDiv.setAttribute("class", "trashIcon");
 		let trash = document.createElement("i");
 		trash.setAttribute("class", "material-icons");
-		trash.setAttribute("onclick", "console.log(`lixo`)");
+		trash.setAttribute("onclick", `deleteItem('${item.key}')`);
 		trash.appendChild(document.createTextNode("delete"));
 		trashDiv.appendChild(trash);
 
@@ -83,5 +86,61 @@ function renderTodos(data) {
 
 		//Coloca item na lista em si
 		list.appendChild(listItem);
+	});
+}
+
+// function addItem() {
+// 	let inputValue = dataInput.value;
+// 	if (inputValue.length > 0) {
+// 		firebase.auth().onAuthStateChanged((user) => {
+// 			firestore
+// 				.collection("users")
+// 				.doc(user.email)
+// 				.get()
+// 				.then((data) => {
+// 					let list = data.data().list;
+// 					console.log(typeof list);
+
+// 					let newItem = {
+// 						title: inputValue,
+// 						key: inputValue + Math.random().toString(),
+// 						important: false,
+// 					};
+
+// 					let newList = list.unshift(newItem);
+// 					inputValue = "";
+// 					saveToFirebase(newList);
+// 				});
+// 		});
+// 	} else {
+// 		dialog.showMessageBox({
+// 			type: "info",
+// 			title: "Digite algo",
+// 			message: "digite algo antes de adicionar à lista",
+// 		});
+// 	}
+// }
+
+function deleteItem(key) {
+	console.log(`Item: ${key}`);
+	firebase.auth().onAuthStateChanged((user) => {
+		let docRef = firestore
+			.collection("users")
+			.doc(user.email)
+			.get()
+			.then((data) => {
+				let list = data.data().list;
+
+				let filtered = list.filter((item) => item.key !== key);
+				saveToFirebase(filtered);
+			});
+	});
+}
+
+function saveToFirebase(dataToSave) {
+	firebase.auth().onAuthStateChanged((user) => {
+		firestore.collection("users").doc(user.email).update({
+			list: dataToSave,
+		});
 	});
 }

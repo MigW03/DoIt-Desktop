@@ -151,3 +151,10 @@ header {
 	color: #c13e45;
 	cursor: pointer;
 }
+
+.material-icons.orange {
+	color: orange;
+}
+.material-icons.grey {
+	color: #bfbfbf80;
+}
