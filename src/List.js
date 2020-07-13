@@ -50,13 +50,15 @@ function renderTodos(data) {
 		// Criar li class='listItem'
 		let listItem = document.createElement("li");
 		listItem.setAttribute("class", "listItem");
+		listItem.setAttribute("key", item.key);
 
 		// criar div com icone da estrela class='starIcon' icone=> class='fas fa-star'
 		let starDiv = document.createElement("div");
 		starDiv.setAttribute("class", "starIcon");
 		let star = document.createElement("i");
-		star.setAttribute("class", "fa fas-star");
-		// let star = document.createTextNode("\u2605");
+		star.setAttribute("class", "material-icons");
+		star.setAttribute("onclick", "console.log(`estrela`)");
+		star.appendChild(document.createTextNode("star"));
 		starDiv.appendChild(star);
 
 		// criar div com texto class='textContainer'
@@ -69,7 +71,9 @@ function renderTodos(data) {
 		let trashDiv = document.createElement("div");
 		trashDiv.setAttribute("class", "trashIcon");
 		let trash = document.createElement("i");
-		trash.setAttribute("class", "fa fas-trash-alt");
+		trash.setAttribute("class", "material-icons");
+		trash.setAttribute("onclick", "console.log(`lixo`)");
+		trash.appendChild(document.createTextNode("delete"));
 		trashDiv.appendChild(trash);
 
 		//Junta todas as partes do item da lista
