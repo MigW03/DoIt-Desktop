@@ -2,6 +2,7 @@
 
 * {
 	-webkit-user-select: none;
+	outline: none;
 }
 
 #draggable {
@@ -20,8 +21,10 @@ body {
 }
 
 #goBackButton {
+	outline: none;
 	width: fit-content;
 	color: #cc6166;
+	background-color: #f1f1f1;
 	font-family: "Roboto Mono";
 	font-size: 14px;
 	font-weight: bold;

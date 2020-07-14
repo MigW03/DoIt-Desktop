@@ -2,6 +2,7 @@
 
 * {
 	-webkit-user-select: none;
+	outline: none;
 }
 
 #draggable {

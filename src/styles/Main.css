@@ -34,6 +34,7 @@ header {
 }
 
 #headerButton {
+	outline: none;
 	background-color: #f1f1f1;
 	color: #cc6166;
 	font-size: 32px;
@@ -54,11 +55,32 @@ header {
 	position: fixed;
 	bottom: 12px;
 }
+
+#formContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 80%;
+}
+
+#checkboxContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding-bottom: 12px;
+}
+
+#isImportantLabel {
+	color: #fff;
+	font-family: "Roboto Mono";
+	font-size: 14px;
+	margin-left: 2px;
+}
+
 #input {
 	background-color: #fff;
 	font-size: 17px;
 	font-family: "Roboto Mono";
-	width: 80%;
 	color: black;
 	border-width: 0px;
 	border-radius: 4px;
@@ -66,6 +88,7 @@ header {
 	padding-left: 8px;
 }
 #addItemButton {
+	outline: none;
 	background-color: #cc6166;
 	align-items: center;
 	justify-content: center;
@@ -99,35 +122,59 @@ header {
 	background: #a9a9a958;
 }
 
-#list {
+#importantList,
+#notImportantList {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	align-items: center;
 	padding-inline-start: 0px;
-	padding-bottom: 70px;
 }
 
-.listItem {
+#notImportantList {
+	padding-bottom: 100px;
+}
+
+.listTitle {
+	font-family: "Roboto Mono";
+	font-size: 14px;
+	font-weight: bold;
+	color: #656565;
+	margin-left: 35px;
+}
+
+.listItem,
+.listItem.important {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	width: 85%;
 	/* align-self: center; */
 	background-color: #fff;
 	font-family: "Roboto Mono";
 	font-weight: bold;
 	font-size: 18px;
+	color: #696969;
 	padding: 8px;
 	margin-bottom: 10px;
 	border-radius: 8px;
 	list-style-type: none;
 }
 
+.listItem.listItem.important {
+	color: #000;
+	/* background-color: #ffa500a6; */
+	/* border: 1px solid #fff; */
+	border-left: 8px solid orange;
+	/* border-top-left-radius: 12px;
+	border-bottom-left-radius: 12px; */
+}
+
 .textContainer {
 	width: 70%;
 	display: flex;
 	align-items: center;
-	padding-left: 10px;
+	padding-left: 12px;
 	word-break: break-all;
 }
 

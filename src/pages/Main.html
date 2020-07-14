@@ -26,7 +26,8 @@
 		</header>
 
 		<div id="listContainer">
-			<ul id="list">
+			<h5 class="listTitle">Tarefas importantes</h5>
+			<ul id="importantList">
 				<!-- <li class="listItem">
 					<div class="starIcon">
 						<i class="material-icons" onclick="console.log('estrela')">star</i>
@@ -39,10 +40,21 @@
 					</div>
 				</li> -->
 			</ul>
+			
+			<h5 class="listTitle">Outras tarefas</h5>
+			<ul id="notImportantList">
+
+			</ul>
 		</div>
 
 		<div id="addItemDiv">
-			<input type="text" name="newItem" id="input" placeholder="Novo item" />
+			<div id="formContainer">
+				<div id="checkboxContainer">
+					<input type="checkbox" name="isImportant" id="isImportant">
+					<label for="isImportant" id='isImportantLabel'>Marcar tarefa como importante</label>
+				</div>
+				<input type="text" name="newItem" id="input" placeholder="Novo item" />
+			</div>
 			<button id="addItemButton" onclick="addItem()">
 				<i class="fas fa-paper-plane"></i>
 			</button>

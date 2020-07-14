@@ -3,8 +3,10 @@ require("firebase/auth");
 require("firebase/firestore");
 const { dialog } = require("electron").remote;
 
-const list = document.getElementById("list");
+const importantList = document.getElementById("importantList");
+const otherList = document.getElementById("notImportantList");
 const dataInput = document.getElementById("input");
+const isImportant = document.getElementById("isImportant");
 
 firebase.initializeApp({
 	apiKey: "AIzaSyBiSc-DqKtwdz7HZgY7pPUKhWl98e9Ee-w",
@@ -29,8 +31,6 @@ function loadData() {
 			.doc(userEmail)
 			.onSnapshot((data) => {
 				let retrievedList = data.data().list;
-				console.log(retrievedList);
-				console.log(typeof retrievedList);
 				renderTodos(retrievedList);
 			});
 	});
@@ -46,24 +46,29 @@ function Logout() {
 }
 
 function renderTodos(data) {
-	list.innerHTML = "";
+	importantList.innerHTML = "";
+	otherList.innerHTML = "";
 	data.forEach((item) => {
 		// Criar li class='listItem'
 		let listItem = document.createElement("li");
-		listItem.setAttribute("class", "listItem");
+		// listItem.setAttribute("class", "listItem");
+		listItem.setAttribute(
+			"class",
+			item.important ? "listItem important" : "listItem"
+		);
 		listItem.setAttribute("key", item.key);
 
-		// criar div com icone da estrela class='starIcon' icone=> class='fas fa-star'
-		let starDiv = document.createElement("div");
-		starDiv.setAttribute("class", "starIcon");
-		let star = document.createElement("i");
-		star.setAttribute(
-			"class",
-			item.important ? "material-icons orange" : "material-icons grey"
-		);
-		star.setAttribute("onclick", "console.log(`estrela: ${this.key.value}`)");
-		star.appendChild(document.createTextNode("star"));
-		starDiv.appendChild(star);
+		// // criar div com icone da estrela class='starIcon' icone=> class='fas fa-star'
+		// let starDiv = document.createElement("div");
+		// starDiv.setAttribute("class", "starIcon");
+		// let star = document.createElement("i");
+		// star.setAttribute(
+		// 	"class",
+		// 	item.important ? "material-icons orange" : "material-icons grey"
+		// );
+		// // star.setAttribute("onclick", `starChange('${item.key}')`);
+		// star.appendChild(document.createTextNode("star"));
+		// starDiv.appendChild(star);
 
 		// criar div com texto class='textContainer'
 		let textDiv = document.createElement("div");
@@ -81,12 +86,14 @@ function renderTodos(data) {
 		trashDiv.appendChild(trash);
 
 		//Junta todas as partes do item da lista
-		listItem.appendChild(starDiv);
+		// listItem.appendChild(starDiv);
 		listItem.appendChild(textDiv);
 		listItem.appendChild(trashDiv);
 
 		//Coloca item na lista em si
-		list.appendChild(listItem);
+		item.important
+			? importantList.appendChild(listItem)
+			: otherList.appendChild(listItem);
 	});
 }
 
@@ -97,7 +104,7 @@ function addItem() {
 			let newItem = {
 				title: inputValue,
 				key: inputValue + Math.random().toString(),
-				important: false,
+				important: isImportant.checked,
 			};
 
 			firestore
@@ -120,7 +127,6 @@ function addItem() {
 }
 
 function deleteItem(key) {
-	console.log(`Item: ${key}`);
 	firebase.auth().onAuthStateChanged((user) => {
 		firestore
 			.collection("users")
