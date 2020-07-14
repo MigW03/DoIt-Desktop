@@ -30,6 +30,7 @@ function loadData() {
 			.onSnapshot((data) => {
 				let retrievedList = data.data().list;
 				console.log(retrievedList);
+				console.log(typeof retrievedList);
 				renderTodos(retrievedList);
 			});
 	});
@@ -89,42 +90,39 @@ function renderTodos(data) {
 	});
 }
 
-// function addItem() {
-// 	let inputValue = dataInput.value;
-// 	if (inputValue.length > 0) {
-// 		firebase.auth().onAuthStateChanged((user) => {
-// 			firestore
-// 				.collection("users")
-// 				.doc(user.email)
-// 				.get()
-// 				.then((data) => {
-// 					let list = data.data().list;
-// 					console.log(typeof list);
+function addItem() {
+	let inputValue = dataInput.value;
+	if (inputValue.length > 0) {
+		firebase.auth().onAuthStateChanged((user) => {
+			let newItem = {
+				title: inputValue,
+				key: inputValue + Math.random().toString(),
+				important: false,
+			};
 
-// 					let newItem = {
-// 						title: inputValue,
-// 						key: inputValue + Math.random().toString(),
-// 						important: false,
-// 					};
-
-// 					let newList = list.unshift(newItem);
-// 					inputValue = "";
-// 					saveToFirebase(newList);
-// 				});
-// 		});
-// 	} else {
-// 		dialog.showMessageBox({
-// 			type: "info",
-// 			title: "Digite algo",
-// 			message: "digite algo antes de adicionar à lista",
-// 		});
-// 	}
-// }
+			firestore
+				.collection("users")
+				.doc(user.email)
+				.update({
+					list: firebase.firestore.FieldValue.arrayUnion(newItem),
+				})
+				.then(() => {
+					return (dataInput.value = ""), loadData();
+				});
+		});
+	} else {
+		dialog.showMessageBox({
+			type: "info",
+			title: "Digite algo",
+			message: "digite algo antes de adicionar à lista",
+		});
+	}
+}
 
 function deleteItem(key) {
 	console.log(`Item: ${key}`);
 	firebase.auth().onAuthStateChanged((user) => {
-		let docRef = firestore
+		firestore
 			.collection("users")
 			.doc(user.email)
 			.get()
