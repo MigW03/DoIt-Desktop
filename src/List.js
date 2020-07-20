@@ -13,7 +13,6 @@ firebase.initializeApp({
 	authDomain: "to-do-app-d4a0c.firebaseapp.com",
 	databaseURL: "https://to-do-app-d4a0c.firebaseio.com",
 	projectId: "to-do-app-d4a0c",
-
 	storageBucket: "to-do-app-d4a0c.appspot.com",
 	messagingSenderId: "95028475262",
 	appId: "1:95028475262:web:bf49a1d5c1b5bbb94def2f",
@@ -36,13 +35,8 @@ function loadData() {
 	});
 }
 
-function Logout() {
-	firebase
-		.auth()
-		.signOut()
-		.then(() => {
-			window.location.href = "./Initial.html";
-		});
+function goToSettings() {
+	window.location.href = "./Settings.html";
 }
 
 function renderTodos(data) {

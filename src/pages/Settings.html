@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/f6a01a97f6.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="../styles/Settings.css" />
+		<title>Settings</title>
+	</head>
+	<body>
+		<div id="draggable"></div>
+
+		<button id="goBackButton" onclick="goBack()">Voltar</button>
+		<div id="header">
+			<h3 id="pageTitle">Configurações</h3>
+		</div>
+
+		<div id="autoLauchContainer">
+			<input type="checkbox" name="autoLaunchInput" id="autoLaunchInput" />
+			<label for="autoLaunchInput" id="autoLauchInputLabel"
+				>Iniciar DoIt ao ligar computador</label
+			>
+		</div>
+		<hr id="contentSeparator" />
+
+		<div id="userInfoContainer">
+			<div id="userIcon">
+				<i class="fas fa-user"></i>
+				<h4 id="userInfoTitle">Dados da conta</h4>
+			</div>
+		</div>
+
+		<script src="../Settings.js"></script>
+	</body>
+</html>
