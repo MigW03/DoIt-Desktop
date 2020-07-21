@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="../styles/Settings.css" />
 		<title>Settings</title>
 	</head>
-	<body>
+	<body onload="loadUserData()">
 		<div id="draggable"></div>
 
 		<button id="goBackButton" onclick="goBack()">Voltar</button>
@@ -19,7 +19,12 @@
 		</div>
 
 		<div id="autoLauchContainer">
-			<input type="checkbox" name="autoLaunchInput" id="autoLaunchInput" />
+			<input
+				type="checkbox"
+				name="autoLaunchInput"
+				id="autoLaunchInput"
+				onchange="setAutoLaunch(this.checked)"
+			/>
 			<label for="autoLaunchInput" id="autoLauchInputLabel"
 				>Iniciar DoIt ao ligar computador</label
 			>
@@ -30,6 +35,19 @@
 			<div id="userIcon">
 				<i class="fas fa-user"></i>
 				<h4 id="userInfoTitle">Dados da conta</h4>
+			</div>
+
+			<div id="emailData">
+				<h5 id="emailDataTitle">E-mail:</h5>
+				<h6 id="emailAdress">Carregando dados...</h6>
+
+				<button id="resetPasswordButton" onclick="resetPassword()">
+					Restaurar senha
+				</button>
+				<button id="logOutButton" onclick="Logout()">
+					<i class="fas fa-sign-out-alt"></i>
+					<p id="logOutText">Encerrar sessão</p>
+				</button>
 			</div>
 		</div>
 

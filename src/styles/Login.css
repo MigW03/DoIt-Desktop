@@ -12,6 +12,10 @@
 	-webkit-app-region: drag;
 }
 
+button {
+	cursor: pointer;
+}
+
 body {
 	background-color: #f1f1f1;
 	display: flex;

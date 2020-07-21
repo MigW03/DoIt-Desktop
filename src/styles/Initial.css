@@ -4,6 +4,9 @@
 	-webkit-user-select: none;
 	outline: none;
 }
+button {
+	cursor: pointer;
+}
 
 #draggable {
 	width: 100%;

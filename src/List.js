@@ -22,9 +22,15 @@ firebase.initializeApp({
 const firestore = firebase.firestore();
 const auth = firebase.auth();
 
+dataInput.addEventListener("keypress", (event) => {
+	if (event.keyCode === 13) {
+		addItem();
+	}
+});
+
 function loadData() {
 	auth.onAuthStateChanged((user) => {
-		userEmail = user.email;
+		let userEmail = user.email;
 		firestore
 			.collection("users")
 			.doc(userEmail)
@@ -108,7 +114,9 @@ function addItem() {
 					list: firebase.firestore.FieldValue.arrayUnion(newItem),
 				})
 				.then(() => {
-					return (dataInput.value = ""), loadData();
+					return (
+						(dataInput.value = ""), (isImportant.checked = false), loadData()
+					);
 				});
 		});
 	} else {

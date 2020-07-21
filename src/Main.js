@@ -48,8 +48,8 @@ function Login() {
 					return (
 						dialog.showMessageBox({
 							type: "info",
-							title: "Email inválido",
-							message: "Este email é inválido, por favor tente outro",
+							title: "E-mail inválido",
+							message: "Este e-mail é inválido, por favor tente outro",
 						}),
 						(emailInput.value = ""),
 						emailInput.focus()
@@ -61,7 +61,7 @@ function Login() {
 							type: "info",
 							title: "Dados incorretos",
 							message:
-								"Seu email ou senha está incorreta, por favor digite novamente",
+								"Seu e-mail ou senha está incorreta, por favor digite novamente",
 						}),
 						(passwordInput.value = ""),
 						passwordInput.focus()
@@ -94,7 +94,7 @@ function Login() {
 		dialog.showMessageBox({
 			type: "info",
 			title: "Campos obrigatórios",
-			message: "Digite seus email e senha antes de prosseguir!",
+			message: "Digite seus e-mail e senha antes de prosseguir!",
 		});
 	}
 }
@@ -108,17 +108,17 @@ function forgotPassword() {
 			.then(() =>
 				dialog.showMessageBox({
 					type: "info",
-					title: "Email enviado com sucesso",
+					title: "E-mail enviado com sucesso",
 					message:
-						"Um email para redefinir sua senha foi enviado para seu email!",
+						"Um e-mail para redefinir sua senha foi enviado para seu e-mail!",
 				})
 			);
 	} else {
 		dialog.showMessageBox({
 			type: "info",
-			title: "Digite seu email",
+			title: "Digite seu e-mail",
 			message:
-				"Digite o seu email no campo de 'email' para que possamos enviar o email de recuperação!",
+				"Digite o seu e-mail no campo de 'e-mail' para que possamos enviar o e-mail de recuperação!",
 		});
 	}
 }
@@ -146,7 +146,7 @@ function Register() {
 							type: "info",
 							title: "Usuário existente",
 							message:
-								"Este email já está sendo usado por algum usuário, por favor use outro endereço!",
+								"Este e-mail já está sendo usado por algum usuário, por favor use outro endereço!",
 						}),
 						(emailInput.value = ""),
 						emailInput.focus()
@@ -156,9 +156,9 @@ function Register() {
 					return (
 						dialog.showMessageBox({
 							type: "info",
-							title: "Email inválido",
+							title: "E-mail inválido",
 							message:
-								"Esse endereço de email é inválido, por favor tente outro!",
+								"Esse endereço de e-mail é inválido, por favor tente outro!",
 						}),
 						(emailInput.value = ""),
 						emailInput.focus()

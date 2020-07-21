@@ -11,6 +11,10 @@
 	-webkit-app-region: drag;
 }
 
+button {
+	cursor: pointer;
+}
+
 body {
 	display: flex;
 	flex-direction: column;

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
+* {
+	-webkit-user-select: none;
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -8,6 +12,10 @@ body {
 	padding: 0px;
 	margin: 0px;
 	overflow-y: hidden;
+}
+
+button {
+	cursor: pointer;
 }
 
 #draggable {

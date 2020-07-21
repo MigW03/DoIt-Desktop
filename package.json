@@ -4,15 +4,20 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "electron ."
+		"start": "electron .",
+		"package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets.icon.icon512_DoIt.png --prune=true --out=release-builds",
+		// "package-windows": "electron-packager . ",
+		// "package-linux": "electron-packager . "
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"electron": "^8.3.0"
+		"electron": "^8.3.0",
+		"electron-packager": "^15.0.0"
 	},
 	"dependencies": {
+		"electron-store": "^6.0.0",
 		"firebase": "^7.15.5"
 	}
 }
