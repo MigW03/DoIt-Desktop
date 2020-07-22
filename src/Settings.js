@@ -3,7 +3,6 @@ require("firebase/auth");
 const { dialog, app } = require("electron").remote;
 const Store = require("electron-store");
 const store = new Store();
-const exeName = path.basename(process.execPath);
 
 firebase.initializeApp({
 	apiKey: "AIzaSyBiSc-DqKtwdz7HZgY7pPUKhWl98e9Ee-w",
@@ -34,7 +33,6 @@ function loadUserData() {
 function setAutoLaunch(value) {
 	app.setLoginItemSettings({
 		openAtLogin: value,
-		path: exeName,
 	});
 	store.set("autoLaunchEnabled", value);
 	console.log(store.get("autoLaunchEnabled"));
