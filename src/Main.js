@@ -1,5 +1,6 @@
 const { dialog } = require("electron").remote;
 const firebase = require("firebase/app");
+require("firebase/firestore");
 require("firebase/auth");
 
 firebase.initializeApp({
@@ -7,12 +8,13 @@ firebase.initializeApp({
 	authDomain: "to-do-app-d4a0c.firebaseapp.com",
 	databaseURL: "https://to-do-app-d4a0c.firebaseio.com",
 	projectId: "to-do-app-d4a0c",
-
 	storageBucket: "to-do-app-d4a0c.appspot.com",
 	messagingSenderId: "95028475262",
 	appId: "1:95028475262:web:bf49a1d5c1b5bbb94def2f",
 	measurementId: "G-6SS9CREWY4",
 });
+
+const firestore = firebase.firestore();
 
 document
 	.getElementById("loginPassword")
@@ -140,6 +142,7 @@ function Register() {
 			.auth()
 			.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
 			.then(() => {
+				firestore.collection("users").doc(email).set({ list: [] });
 				dialog.showMessageBox({
 					type: "info",
 					title: "Usuário criado",
