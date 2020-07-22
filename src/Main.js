@@ -142,7 +142,18 @@ function Register() {
 			.auth()
 			.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
 			.then(() => {
-				firestore.collection("users").doc(email).set({ list: [] });
+				firestore
+					.collection("users")
+					.doc(emailInput.value)
+					.set({
+						list: [
+							{
+								title: "Bem vindo(a) ao DoIt, aproveite o aplicativo!!",
+								key: "welcome1234",
+								important: true,
+							},
+						],
+					});
 				dialog.showMessageBox({
 					type: "info",
 					title: "Usuário criado",
