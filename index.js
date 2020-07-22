@@ -5,7 +5,6 @@ function createWindow() {
 	const isMac = process.platform === "darwin";
 	let win = new BrowserWindow({
 		show: false,
-		icon: "./assets/icon/icon.png",
 		title: "DoIt",
 		width: 420,
 		maxWidth: 420,

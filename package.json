@@ -6,9 +6,9 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "electron .",
-		"package-darwin": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icon/icon.png --prune=true --out=release-builds",
-		"package-win": "electron-packager . DoIt --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icon/icon.png --prune=true --out=relese-builds",
-		"package-linux": "electron-packager . DoIt --overwrite --asar=true --platform=linux ==arch=x64 --icon=assets/icon/icon.png --prune=tru --out=release-builds"
+		"package-darwin": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac-icon.icns --prune=true --out=release-builds",
+		"package-win": "electron-packager . DoIt --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win-icon.ico --prune=true --out=relese-builds",
+		"package-linux": "electron-packager . DoIt --overwrite --asar=true --platform=linux ==arch=x64 --icon=assets/icons/icon.png --prune=tru --out=release-builds"
 	},
 	"keywords": [],
 	"author": "Miguel Weber",
