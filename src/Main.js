@@ -14,6 +14,14 @@ firebase.initializeApp({
 	measurementId: "G-6SS9CREWY4",
 });
 
+document
+	.getElementById("loginPassword")
+	.addEventListener("keypress", (event) => {
+		if (event.keyCode === 13) {
+			Login();
+		}
+	});
+
 function isLogedIn() {
 	firebase.auth().onAuthStateChanged((user) => {
 		if (user) {

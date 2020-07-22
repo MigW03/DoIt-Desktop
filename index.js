@@ -5,8 +5,8 @@ function createWindow() {
 	const isMac = process.platform === "darwin";
 	let win = new BrowserWindow({
 		show: false,
-		icon: __dirname + "./assets/icon/iconpng",
-		// title: "DoIt",
+		icon: "./assets/icon/icon.png",
+		title: "DoIt",
 		width: 420,
 		maxWidth: 420,
 		minWidth: 330,
@@ -18,7 +18,7 @@ function createWindow() {
 		hasShadow: false,
 		titleBarStyle: "hidden",
 		webPreferences: {
-			// devTools: false,
+			devTools: false,
 			nodeIntegration: true,
 		},
 	});
@@ -46,6 +46,11 @@ function createWindow() {
 				},
 				{ type: "separator" },
 				{
+					label: "Serviços",
+					role: "services",
+				},
+				{ type: "separator" },
+				{
 					accelerator: isMac ? "Cmd + Q" : "Ctrl + Q",
 					label: "Encerrar DoIt",
 					click() {
@@ -54,9 +59,19 @@ function createWindow() {
 				},
 			],
 		},
+		{
+			label: "Janela",
+			submenu: [
+				{
+					label: "Minimizar janela",
+					accelerator: "CmdOrCtrl + M",
+					role: "minimize",
+				},
+			],
+		},
 	]);
 
-	// Menu.setApplicationMenu(menu);
+	Menu.setApplicationMenu(menu);
 }
 
 app.whenReady().then(createWindow);

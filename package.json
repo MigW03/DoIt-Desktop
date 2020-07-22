@@ -1,13 +1,17 @@
 {
-	"name": "desktop",
+	"name": "doit",
+	"productName": "DoIt",
 	"version": "1.0.0",
-	"description": "",
+	"description": "To-do app that sincronize data with android app.",
 	"main": "index.js",
 	"scripts": {
-		"start": "electron ."
+		"start": "electron .",
+		"package-darwin": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icon/icon.png --prune=true --out=release-builds",
+		"package-win": "electron-packager . DoIt --overwrite=true --asar=true --platform=win32 --arch=x64 --icon=assets/icon/icon.png --prune=true --out=relese-builds",
+		"package-linux": "electron-packager . DoIt --overwrite=true --asar=true --platform=linux ==arch=x64 --icon=assets/icon/icon.png --prune=tru --out=release-builds"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "Miguel Weber",
 	"license": "ISC",
 	"devDependencies": {
 		"electron": "^8.3.0",
