@@ -17,8 +17,8 @@ function createWindow() {
 		hasShadow: false,
 		titleBarStyle: "hidden",
 		webPreferences: {
-			devTools: false,
 			nodeIntegration: true,
+			devTools: false,
 		},
 	});
 

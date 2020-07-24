@@ -16,13 +16,24 @@ firebase.initializeApp({
 
 const firestore = firebase.firestore();
 
-document
-	.getElementById("loginPassword")
-	.addEventListener("keypress", (event) => {
-		if (event.keyCode === 13) {
-			Login();
-		}
-	});
+function addLoginListener() {
+	document
+		.getElementById("loginPassword")
+		.addEventListener("keypress", (event) => {
+			if (event.keyCode === 13) {
+				Login();
+			}
+		});
+}
+function addRegisterListener() {
+	document
+		.getElementById("registerPassword")
+		.addEventListener("keypress", (event) => {
+			if (event.keyCode === 13) {
+				Register();
+			}
+		});
+}
 
 function isLogedIn() {
 	firebase.auth().onAuthStateChanged((user) => {
@@ -138,80 +149,82 @@ function Register() {
 	let passwordInput = document.getElementById("registerPassword");
 
 	if (emailInput.value.length > 0 && passwordInput.value.length >= 6) {
-		firebase
-			.auth()
-			.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
-			.then(() => {
-				firestore
-					.collection("users")
-					.doc(emailInput.value)
-					.set({
-						list: [
-							{
-								title: "Bem vindo(a) ao DoIt, aproveite o aplicativo!!",
-								key: "welcome1234",
-								important: true,
-							},
-						],
-					});
-				dialog.showMessageBox({
-					type: "info",
-					title: "Usuário criado",
-					message: "Seu usuário foi ciado com sucesso!",
-				});
-				window.location.href = "./Main.html";
+		firestore
+			.collection("users")
+			.doc(emailInput.value)
+			.set({
+				list: [
+					{
+						title: "Bem vindo(a) ao DoIt, aproveite o aplicativo!!",
+						key: "welcome1234",
+						important: true,
+					},
+				],
 			})
-			.catch((error) => {
-				if (error.code === "auth/email-already-in-use") {
-					return (
+			.then(() => {
+				firebase
+					.auth()
+					.createUserWithEmailAndPassword(emailInput.value, passwordInput.value)
+					.then(() => {
 						dialog.showMessageBox({
 							type: "info",
-							title: "Usuário existente",
-							message:
-								"Este e-mail já está sendo usado por algum usuário, por favor use outro endereço!",
-						}),
-						(emailInput.value = ""),
-						emailInput.focus()
-					);
-				}
-				if (error.code === "auth/invalid-email") {
-					return (
+							title: "Usuário criado",
+							message: "Seu usuário foi ciado com sucesso!",
+						});
+						window.location.href = "./Main.html";
+					})
+					.catch((error) => {
+						if (error.code === "auth/email-already-in-use") {
+							return (
+								dialog.showMessageBox({
+									type: "info",
+									title: "Usuário existente",
+									message:
+										"Este e-mail já está sendo usado por algum usuário, por favor use outro endereço!",
+								}),
+								(emailInput.value = ""),
+								emailInput.focus()
+							);
+						}
+						if (error.code === "auth/invalid-email") {
+							return (
+								dialog.showMessageBox({
+									type: "info",
+									title: "E-mail inválido",
+									message:
+										"Esse endereço de e-mail é inválido, por favor tente outro!",
+								}),
+								(emailInput.value = ""),
+								emailInput.focus()
+							);
+						}
+						if (error.code === "auth/network-request-failed") {
+							return dialog.showMessageBox({
+								type: "info",
+								title: "Sem conexão",
+								message: "Sem conexão à rede, conecte-se e tente novamente",
+							});
+						}
+						if (error.code === "auth/weak-password") {
+							return (
+								dialog.showMessageBox({
+									type: "info",
+									title: "Senha fraca",
+									message:
+										"Essa senha está fraca, ela deve conter pelo menos 6 caracteres!",
+								}),
+								(passwordInput.value = ""),
+								passwordInput.focus()
+							);
+						}
+						console.log(error);
 						dialog.showMessageBox({
 							type: "info",
-							title: "E-mail inválido",
+							title: "Opps!!",
 							message:
-								"Esse endereço de e-mail é inválido, por favor tente outro!",
-						}),
-						(emailInput.value = ""),
-						emailInput.focus()
-					);
-				}
-				if (error.code === "auth/network-request-failed") {
-					return dialog.showMessageBox({
-						type: "info",
-						title: "Sem conexão",
-						message: "Sem conexão à rede, conecte-se e tente novamente",
+								"Houve um erro durante o seu cadastro, por favor tente novamente!",
+						});
 					});
-				}
-				if (error.code === "auth/weak-password") {
-					return (
-						dialog.showMessageBox({
-							type: "info",
-							title: "Senha fraca",
-							message:
-								"Essa senha está fraca, ela deve conter pelo menos 6 caracteres!",
-						}),
-						(passwordInput.value = ""),
-						passwordInput.focus()
-					);
-				}
-				console.log(error);
-				dialog.showMessageBox({
-					type: "info",
-					title: "Opps!!",
-					message:
-						"Houve um erro durante o seu cadastro, por favor tente novamente!",
-				});
 			});
 	} else {
 		dialog.showMessageBox({

@@ -1,7 +1,7 @@
 {
 	"name": "doit",
 	"productName": "DoIt",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "To-do app that sincronize data with android app.",
 	"main": "index.js",
 	"scripts": {
