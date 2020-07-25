@@ -4,8 +4,16 @@
 	"version": "1.0.3",
 	"description": "To-do app that sincronize data with android app.",
 	"main": "index.js",
+	"build": {
+		"appId": "com.webermiguel.doit",
+		"win": {
+			"target": "nsis",
+			"icon": "assets/icons/win-icon.ico"
+		}
+	},
 	"scripts": {
 		"start": "electron .",
+		"dist": "electron-builder build --win",
 		"package-darwin": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac-icon.icns --prune=true --out=release-builds",
 		"package-win": "electron-packager . DoIt --overwrite --asar=true --platform=win32 --arch=x64 --icon=assets/icons/win-icon.ico --prune=true --out=relese-builds",
 		"package-linux": "electron-packager . DoIt --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/icon.png --prune=tru --out=release-builds"
@@ -15,6 +23,7 @@
 	"license": "ISC",
 	"devDependencies": {
 		"electron": "^8.3.0",
+		"electron-builder": "^22.7.0",
 		"electron-packager": "^15.0.0"
 	},
 	"dependencies": {
