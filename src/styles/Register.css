@@ -79,7 +79,7 @@ body {
 	font-size: 18px;
 }
 
-#resgisterButton {
+#registerButton {
 	background-color: #cc6166;
 	width: 80%;
 	margin-top: 30px;
@@ -89,4 +89,8 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 	border-radius: 14px;
+}
+
+#registerButton:hover {
+	opacity: 0.8;
 }

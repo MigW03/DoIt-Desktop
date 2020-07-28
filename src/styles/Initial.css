@@ -99,6 +99,10 @@ body {
 	padding: 7px;
 }
 
+.chooseButton:hover {
+	opacity: 0.8;
+}
+
 #loaderContainer {
 	display: flex;
 	margin: 0px;
