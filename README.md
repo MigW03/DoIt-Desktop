@@ -7,7 +7,7 @@ Write your tasks on your computer, and see them everywhere with your android sma
 
 ## Download for your computer here
 
-[MacOS latest version](https://github.com/MigW03/DoIt-Desktop/releases/tag/v1.0.3-mac)
+[MacOS latest version](https://github.com/MigW03/DoIt-Desktop/releases/tag/v1.0.4-mac)
 
-[Windows latest version](https://github.com/MigW03/DoIt-Desktop/releases/tag/v1.0.3-win)
+[Windows latest version](https://github.com/MigW03/DoIt-Desktop/releases/tag/v1.0.4-win)
 
