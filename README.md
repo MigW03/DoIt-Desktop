@@ -16,7 +16,7 @@ Write your tasks on your computer, and see them everywhere with your android sma
 
 ##### MacOS:
 
- - Click on the link above
+ - Click on the MacOS download link above
  - Open Finder on the downloads folder, and unzip the downloaded file
  - Drag the .app file to your applications folder
  - Launch the app normally
