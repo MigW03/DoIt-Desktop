@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
+
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #f1f1f1;
+	padding-bottom: 40px;
+}
+
+header {
+	background-color: #cc6166;
+	height: 15vh;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#header-title {
+	margin: 0px;
+	color: #f1f1f1;
+	font-size: 7vh;
+	font-family: "Roboto Mono";
+}
+
+#header-text {
+	font-family: "Roboto Mono";
+	font-size: 2vh;
+	max-width: 40vw;
+	color: #f1f1f1;
+}
+
+.app-description {
+	background-color: #fff;
+	border-radius: 30px;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 25px;
+	padding: 18px;
+	width: 75vw;
+	height: 65vh;
+	display: flex;
+	align-items: center;
+}
+
+#desktop-app {
+	padding-left: 35px;
+}
+
+#desktop-app img {
+	max-height: 95%;
+	max-width: 80%;
+	margin-right: 12px;
+	border-radius: 8px;
+	box-shadow: 0px 0px 8px #909090;
+}
+
+#desktop-text {
+	max-width: 36%;
+	margin: 0 auto;
+	padding: 6px;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#desktop-text h3 {
+	font-family: "Roboto Mono";
+	font-size: 4vh;
+}
+
+#desktop-text p {
+	font-family: "Roboto Mono";
+	font-size: 2vh;
+}
+
+#download-div {
+	display: flex;
+	flex-direction: row;
+	margin-top: 20px;
+}
+
+#download-div a {
+	text-decoration: none;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 15px;
+	font-size: 1vw;
+	font-family: "Roboto Mono";
+	color: #fff;
+	background-color: #cc6166;
+	padding: 8px;
+	border-radius: 12px;
+}
+
+.icon {
+	color: #fff;
+	font-size: 2vw;
+	margin-right: 10px;
+}
+
+#mobile-app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
+}
+
+#mobile-app h3 {
+	font-family: "Roboto Mono";
+	font-size: 3vh;
+}
+
+#mobile-app p {
+	font-family: "Roboto Mono";
+	font-size: 2vh;
+	max-width: 70%;
+	margin-top: 25px;
+}
+
+#mobile-app a {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	padding: 8px;
+	margin-top: 40px;
+	border-radius: 12px;
+	text-decoration: none;
+	color: #fff;
+	font-family: "Roboto Mono";
+	font-size: 1vw;
+	background-color: #cc6166;
+}
