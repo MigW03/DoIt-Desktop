@@ -115,7 +115,9 @@ function addItem() {
 				})
 				.then(() => {
 					return (
-						(dataInput.value = ""), (isImportant.checked = false), loadData()
+						(dataInput.value = ""),
+						(isImportant.checked = false),
+						loadData()
 					);
 				});
 		});

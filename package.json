@@ -1,7 +1,7 @@
 {
 	"name": "doit",
 	"productName": "DoIt",
-	"version": "1.0.4",
+	"version": "1.0.41",
 	"description": "To-do app that sincronize data with android app.",
 	"main": "index.js",
 	"build": {
@@ -27,6 +27,7 @@
 		"electron-packager": "^15.0.0"
 	},
 	"dependencies": {
+		"electron-prompt": "^1.6.0",
 		"electron-store": "^6.0.0",
 		"firebase": "^7.15.5"
 	}
